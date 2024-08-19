@@ -33,7 +33,7 @@ const Hero = () => {
           </p>
 
           <TextGenerateEffect
-            words="Transforming Concepts into Reality with Next.js"
+            words="Transforming Concepts into Seamless Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
