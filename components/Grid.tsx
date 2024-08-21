@@ -1,6 +1,5 @@
 import React from 'react';
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid';
-import { FaUserCircle } from 'react-icons/fa';
 import { gridItems } from '@/data';
 
 const Grid = () => {
@@ -25,7 +24,7 @@ const Grid = () => {
               description={description}
               className={className}
               img={img}
-              imgclassName={imgClassName}
+              imgClassName={imgClassName}
               titleClassName={titleClassName}
               spareImg={spareImg}
             />
