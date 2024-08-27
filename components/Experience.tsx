@@ -1,14 +1,12 @@
 import { workExperience } from '@/data';
 import React from 'react';
 import { Button } from './ui/MovingBoarders';
+import Title from './ui/Title';
 
 const Experience = () => {
   return (
     <div className="py-20" id="testimonials">
-      <h1 className="heading">
-        My
-        <span className="text-purple"> Work Experience</span>
-      </h1>
+      <Title primary="My" secondary="Work Experience" />
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (
           <Button
@@ -24,9 +22,13 @@ const Experience = () => {
                 className="lg:w-32 md:w-20 w-16"
               />
               <div className="lg:ms-5">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
+                <h1 className="text-start text-xl md:text-1xl font-bold">
                   {card.title}
                 </h1>
+                <p className="text-start text-gray-400 text-xs mb-3 italic">
+                  {card.company}
+                </p>
+
                 <p className="text-start text-white-100 mt-3 font-semibold">
                   {card.desc}
                 </p>

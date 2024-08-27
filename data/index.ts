@@ -1,3 +1,6 @@
+import { link } from "fs";
+import { or } from "three/webgpu";
+
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
@@ -38,7 +41,7 @@ export const gridItems = [
     },
     {
         id: 4,
-        title: "Tech enthusiast with a passion for development.",
+        title: "Tech enthusiast with a passion for learning and development.",
         description: "",
         className: "lg:col-span-1 md:col-span-2 md:row-span-1",
         imgClassName: "",
@@ -49,7 +52,7 @@ export const gridItems = [
 
     {
         id: 5,
-        title: "Currently building a JS Animation library",
+        title: "Currently Learning AI and Data Science",
         description: "The Inside Scoop",
         className: "md:col-span-2 md:row-span-2",
         imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -173,31 +176,39 @@ export const companies = [
 export const workExperience = [
     {
         id: 1,
-        title: "Frontend Engineer Intern",
+        title: "Software Engineer",
+        area: "Full Stack",
+        company: "Gapstars",
         desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        className: "md:col-span-2",
+        thumbnail: "/exp2.svg",
+    },
+    {
+        id: 2,
+        title: "Software Engineer",
+        area: "Full Stack",
+        company: "Adventus.io",
+        desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
     {
-        id: 2,
-        title: "Mobile App Dev - JSM Tech",
-        desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-        className: "md:col-span-2", // change to md:col-span-2
-        thumbnail: "/exp2.svg",
-    },
-    {
         id: 3,
-        title: "Freelance App Dev Project",
+        title: "Associate Software Engineer",
+        area: "Backend Developer",
+        company: "Elegant Media",
         desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-        className: "md:col-span-2", // change to md:col-span-2
-        thumbnail: "/exp3.svg",
+        className: "md:col-span-2",
+        thumbnail: "/exp4.svg",
     },
     {
         id: 4,
-        title: "Lead Frontend Developer",
+        title: "Web Developer",
+        area: "Full Stack",
+        company: "Seven Media Group",
         desc: "Developed and maintained user-facing features using modern frontend technologies.",
         className: "md:col-span-2",
-        thumbnail: "/exp4.svg",
+        thumbnail: "/exp3.svg",
     },
 ];
 
@@ -205,13 +216,59 @@ export const socialMedia = [
     {
         id: 1,
         img: "/git.svg",
+        link: "https://github.com/jareerzeenam"
     },
     {
         id: 2,
         img: "/twit.svg",
+        link: "https://x.com/Jareer28"
     },
     {
         id: 3,
         img: "/link.svg",
+        link: "https://www.linkedin.com/in/jareer-zeenam/"
     },
 ];
+
+export const blogs = [
+    {
+        title: "Stripe",
+        description: "A technology company that builds economic infrastructure for the internet.",
+        link: "https://stripe.com",
+    },
+    {
+        title: "Netflix",
+        description: "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+        link: "https://netflix.com",
+    },
+    {
+        title: "Google",
+        description: "A multinational technology company that specializes in Internet-related services and products.",
+        link: "https://google.com",
+    },
+];
+
+export const approach = [
+    {
+        id: 1,
+        title: "Planning",
+        order: "Phase 1",
+        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        className: "bg-gradient-to-r from-purple-500 to-pink-500",
+    },
+    {
+        id: 2,
+        title: "Development",
+        order: "Phase 2",
+        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        className: "bg-gradient-to-r from-pink-500 to-yellow-500",
+
+    },
+    {
+        id: 3,
+        title: "lorem",
+        order: "Phase 3",
+        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        className: "bg-gradient-to-r from-blue-500 to-green-700",
+    },
+]
