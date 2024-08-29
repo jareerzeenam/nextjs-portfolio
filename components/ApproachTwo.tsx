@@ -4,10 +4,10 @@ import { EvervaultCard, Icon } from './ui/evervaultCard';
 import { approach } from '@/data';
 import Title from './ui/Title';
 
-const Projects = () => {
+const ApproachTwo = () => {
   return (
     <div>
-      <Title primary="My" secondary="Approach" />
+      <Title primary="My" secondary="Approach 2" />
 
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
         {approach.map((item) => (
@@ -42,4 +42,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ApproachTwo;

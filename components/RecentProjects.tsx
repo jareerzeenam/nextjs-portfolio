@@ -6,6 +6,7 @@ import { projects } from '@/data';
 import { PinContainer } from './ui/3d-pin';
 import Title from './ui/Title';
 import { FaGithub } from 'react-icons/fa';
+import MagicButton from './ui/MagicButton';
 
 const RecentProjects = () => {
   return (
@@ -14,7 +15,7 @@ const RecentProjects = () => {
         primary="A small selection of"
         secondary="recent projects"
       />
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-16 gap-y-8 mt-10">
+      <div className="flex flex-wrap items-center justify-center p-4 gap-x-16 gap-y-1">
         {projects.map((item) => (
           <div
             className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
@@ -74,6 +75,13 @@ const RecentProjects = () => {
             </PinContainer>
           </div>
         ))}
+        <a href="https://github.com/jareerzeenam">
+          <MagicButton
+            title="See More Projects"
+            icon={<FaGithub />}
+            position="right"
+          />
+        </a>
       </div>
     </div>
   );

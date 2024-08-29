@@ -3,6 +3,7 @@ import React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { CanvasRevealEffect } from './ui/CanvasRevealEffect';
+import { approach } from '@/data';
 
 const Approach = () => {
   return (
@@ -11,44 +12,21 @@ const Approach = () => {
         My <span className="text-purple">Approach</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
-        {/* TODO:: Loop These cards from data */}
-
-        <Card
-          title="Planning & Strategy"
-          icon={<AceternityIcon order="Phase 1" />}
-          description="Assisted in the development of a web-based platform using React.js, enhancing interactivity."
-        >
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName="bg-emerald-900"
-          />
-        </Card>
-        <Card
-          title="Development & Launch"
-          icon={<AceternityIcon order="Phase 2" />}
-          description="Assisted in the development of a web-based platform using React.js, enhancing interactivity."
-        >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-black"
-            colors={[
-              [236, 72, 153],
-              [232, 121, 249],
-            ]}
-            dotSize={2}
-          />
-        </Card>
-        <Card
-          title="Munni is Aditi"
-          icon={<AceternityIcon order="Phase 3" />}
-          description="Assisted in the development of a web-based platform using React.js, enhancing interactivity."
-        >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
-          />
-        </Card>
+        {approach.map((item) => (
+          <Card
+            key={item.id}
+            title={item.title}
+            icon={<AceternityIcon order={item.order} />}
+            description={item.description}
+          >
+            <CanvasRevealEffect
+              colors={item.colors}
+              animationSpeed={2}
+              containerClassName={item.className}
+              dotSize={2}
+            />
+          </Card>
+        ))}
       </div>
     </section>
   );
@@ -70,7 +48,7 @@ const Card = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl"
+      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative lg:h-[35rem]"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />

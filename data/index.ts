@@ -75,36 +75,38 @@ export const gridItems = [
 export const projects = [
     {
         id: 1,
-        title: "3D Solar System Planets to Explore",
-        des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-        img: "/p1.svg",
-        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-        link: "https://github.com/adrianhajdin?tab=repositories",
+        title: "GraphQL Blog",
+        des: "This is a personal blog application, created using Node.js, GraphQL, Apollo server Express and MongoDB",
+        img: "/graphql.png",
+        iconLists: ['node.svg', "/graphql.svg", "/apollo.svg", "/jest.svg", 'postman.svg'],
+        link: "https://github.com/jareerzeenam/graphql-blog",
     },
+
     {
         id: 2,
-        title: "Yoom - Video Conferencing App",
-        des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-        img: "/p2.svg",
-        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-        link: "https://github.com/adrianhajdin/zoom-clone",
+        title: "Laravel Web Shop",
+        des: "This application is designed to provide a seamless shopping experience with advanced features and secure payment integration. Below you'll find a detailed overview of the technologies used, features available, and instructions for setting up and running the application.",
+        img: "/webshop.png",
+        iconLists: ["/laravel.svg", "/tail.svg", "/ts.svg", "/stripe.svg", "/livewire.svg"],
+        link: "https://github.com/jareerzeenam/laravel-webshop",
     },
     {
         id: 3,
-        title: "AI Image SaaS - Canva Application",
-        des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-        img: "/p3.svg",
-        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-        link: "https://github.com/adrianhajdin/ai_saas_app",
+        title: "Laravel Forum",
+        des: "This is a Laravel Jetstream project built with Vue3 (Composition API) and Inertia.js. The application follows Test Driven Development (TDD) principles using Pest PHP.",
+        img: "/forum.png",
+        iconLists: ["/laravel.svg", "/vue.svg", "/tail.svg", "/ts.svg", "/postman.svg"],
+        link: "https://github.com/jareerzeenam/laravel-forum",
     },
     {
         id: 4,
-        title: "Animated Apple Iphone 3D Website",
-        des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-        img: "/p4.svg",
-        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "https://github.com/adrianhajdin/iphone",
+        title: "Metaversus Concept Landing Page",
+        des: "This repository contains a modern landing page concept for Metaversus, a metaverse-based platform. The landing page is built using Next.js 13, React, Tailwind CSS, and Framer Motion for animated effects.",
+        img: "/metaverse.png",
+        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg", "/gsap.svg"],
+        link: "https://github.com/jareerzeenam/nextjs-metaverse-app",
     },
+
 ];
 
 export const testimonials = [
@@ -179,7 +181,7 @@ export const workExperience = [
         title: "Software Engineer",
         area: "Full Stack",
         company: "Gapstars",
-        desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        desc: "Developed and optimized backend systems using PHP Laravel and contributed to building dynamic frontends with Next.js, enhancing both performance and user experience.",
         className: "md:col-span-2",
         thumbnail: "/exp2.svg",
     },
@@ -188,7 +190,7 @@ export const workExperience = [
         title: "Software Engineer",
         area: "Full Stack",
         company: "Adventus.io",
-        desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+        desc: "Transitioned the system architecture to microservices using Node.js and GraphQL, significantly improving scalability and efficiency.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
@@ -197,7 +199,7 @@ export const workExperience = [
         title: "Associate Software Engineer",
         area: "Backend Developer",
         company: "Elegant Media",
-        desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+        desc: "Developed robust APIs for mobile and web applications using PHP Laravel, ensuring seamless integration and reliable performance.",
         className: "md:col-span-2",
         thumbnail: "/exp4.svg",
     },
@@ -206,7 +208,7 @@ export const workExperience = [
         title: "Web Developer",
         area: "Full Stack",
         company: "Seven Media Group",
-        desc: "Developed and maintained user-facing features using modern frontend technologies.",
+        desc: "Created and maintained responsive e-commerce websites and lead-generating landing pages using WordPress, improving site performance and user engagement.",
         className: "md:col-span-2",
         thumbnail: "/exp3.svg",
     },
@@ -215,7 +217,7 @@ export const workExperience = [
 export const socialMedia = [
     {
         id: 1,
-        img: "/git.svg",
+        img: "/github.svg",
         link: "https://github.com/jareerzeenam"
     },
     {
@@ -232,43 +234,280 @@ export const socialMedia = [
 
 export const blogs = [
     {
-        title: "Stripe",
-        description: "A technology company that builds economic infrastructure for the internet.",
-        link: "https://stripe.com",
+        title: "Implementing GraphQL and Apollo Server with Next.js 13.4: A Simple Guide (App Directory)",
+        description: "Explore the fusion of GraphQL and Apollo Server with Next.js 13.4 in a step-by-step journey.",
+        link: "https://medium.com/@jareerzeenam/implementing-graphql-and-apollo-server-with-next-js-13-4-a-simple-guide-app-directory-77e38eb697e3",
     },
     {
-        title: "Netflix",
-        description: "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-        link: "https://netflix.com",
+        title: "How to GraphQL? Explain like I’m 5",
+        description: "Discover GraphQL Basics with Easy-to-Follow Steps and Simple Explanations.",
+        link: "https://medium.com/@jareerzeenam/how-to-graphql-explain-like-im-5-78c31e3d0fd5",
     },
     {
-        title: "Google",
-        description: "A multinational technology company that specializes in Internet-related services and products.",
-        link: "https://google.com",
+        title: "Setting up Serverless Framework with AWS",
+        description: "Learn How to Set Up the Serverless Framework on AWS with Clear, Step-by-Step Instructions.",
+        link: "https://medium.com/@jareerzeenam/setting-up-serverless-framework-with-aws-19736402c146",
     },
 ];
 
 export const approach = [
     {
         id: 1,
-        title: "Planning",
+        title: "Planning & Discovery",
         order: "Phase 1",
-        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-        className: "bg-gradient-to-r from-purple-500 to-pink-500",
+        description: "Understanding the project's goals, requirements, and audience. Collaborating with stakeholders to define scope, objectives, and timelines.",
+        className: "bg-gradient-to-r from-red-500 to-black-100",
     },
     {
         id: 2,
-        title: "Development",
+        title: "Design & Development",
         order: "Phase 2",
-        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-        className: "bg-gradient-to-r from-pink-500 to-yellow-500",
+        description: "Transforming ideas into functional, user-friendly solutions. Writing clean, maintainable code while focusing on scalability and efficiency.",
+        className: "bg-gradient-to-r from-black-100 to-yellow-500",
+        colors: [
+            [236, 72, 153],
+            [232, 121, 249],
+        ]
 
     },
     {
         id: 3,
-        title: "lorem",
+        title: "Testing & Deployment",
         order: "Phase 3",
-        description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-        className: "bg-gradient-to-r from-blue-500 to-green-700",
+        description: "Conducting rigorous testing to ensure quality. Managing smooth deployment and providing ongoing support post-launch.",
+        className: "bg-gradient-to-r from-green-500 to-black-100",
+        colors: [[125, 211, 252]]
     },
-]
+];
+
+export const skills = [
+    {
+        id: 1,
+        title: "PHP",
+        img: "/php.svg",
+    },
+    {
+        id: 1,
+        title: "Laravel",
+        img: "/laravel.svg",
+    },
+    {
+        id: 1,
+        title: "Python",
+        img: "/python.svg",
+    },
+    {
+        id: 4,
+        title: "JavaScript",
+        img: "/javascript.svg",
+    },
+    {
+        id: 5,
+        title: "Node.js",
+        img: "/node.svg",
+    },
+    {
+        id: 5,
+        title: "Jest",
+        img: "/jest.svg",
+    },
+    {
+        id: 5,
+        title: "PEST",
+        img: "/pest.svg",
+    },
+    {
+        id: 6,
+        title: "GraphQL",
+        img: "/graphql.svg",
+    },
+    {
+        id: 6,
+        title: "Apollo",
+        img: "/apollo.svg",
+    },
+    {
+        id: 3,
+        title: "Next.js",
+        img: "/next.svg",
+    },
+    {
+        id: 4,
+        title: "TypeScript",
+        img: "/ts.svg",
+    },
+    {
+        id: 4,
+        title: "Express",
+        img: "/express.svg",
+    },
+    {
+        id: 7,
+        title: "MySQL",
+        img: "/mysql.svg",
+    },
+    {
+        id: 7,
+        title: "MongoDB",
+        img: "/mongodb.svg",
+    },
+    {
+        id: 7,
+        title: "DynamoDB",
+        img: "/dynamodb.svg",
+    },
+    {
+        id: 19,
+        title: "Redis",
+        img: "/redis.svg",
+    },
+    {
+        id: 2,
+        title: "Tailwind",
+        img: "/tail.svg",
+    },
+    {
+        id: 2,
+        title: "Bootstrap",
+        img: "/bootstrap.svg",
+    },
+    {
+        id: 4,
+        title: "JQuery",
+        img: "/jquery.svg",
+    },
+    {
+        id: 4,
+        title: "EsLint",
+        img: "/eslint.svg",
+    },
+    {
+        id: 9,
+        title: "Docker",
+        img: "/docker.svg",
+    },
+    {
+        id: 10,
+        title: "AWS",
+        img: "/aws.svg",
+    },
+    {
+        id: 19,
+        title: "S3",
+        img: "/amazons3.svg",
+    },
+    {
+        id: 12,
+        title: "Serverless",
+        img: "/serverless.svg",
+    },
+
+    {
+        id: 11,
+        title: "Stripe",
+        img: "/stripe.svg",
+    },
+    {
+        id: 12,
+        title: "Swagger",
+        img: "/swagger.svg",
+    },
+    {
+        id: 12,
+        title: "Livewire",
+        img: "/livewire.svg",
+    },
+    {
+        id: 13,
+        title: "Git",
+        img: "/git.svg",
+    },
+    {
+        id: 13,
+        title: "GitHub",
+        img: "/github.svg",
+    },
+    {
+        id: 13,
+        title: "Copilot",
+        img: "/githubcopilot.svg",
+    },
+    {
+        id: 13,
+        title: "Postman",
+        img: "/postman.svg",
+    },
+
+    {
+        id: 14,
+        title: "GSAP",
+        img: "/gsap.svg",
+    },
+    {
+        id: 15,
+        title: "Three.js",
+        img: "/three.svg",
+    },
+    {
+        id: 16,
+        title: "HTML5",
+        img: "/html.svg",
+    },
+    {
+        id: 16,
+        title: "CSS3",
+        img: "/css3.svg",
+    },
+    {
+        id: 16,
+        title: "SASS",
+        img: "/sass.svg",
+    },
+    {
+        id: 17,
+        title: "Material UI",
+        img: "/mui.svg",
+    },
+    {
+        id: 18,
+        title: "Figma",
+        img: "/figma.svg",
+    },
+    {
+        id: 18,
+        title: "Adobe",
+        img: "/adobe.svg",
+    },
+    {
+        id: 19,
+        title: "Storybook",
+        img: "/storybook.svg",
+    },
+
+    {
+        id: 20,
+        title: "React",
+        img: "/re.svg",
+    },
+    {
+        id: 21,
+        title: "Vue",
+        img: "/vue.svg",
+    },
+    {
+        id: 21,
+        title: "Alpine.js",
+        img: "/alpine.svg",
+    },
+    {
+        id: 21,
+        title: "Confluence",
+        img: "/confluence.svg",
+    },
+    {
+        id: 21,
+        title: "WordPress",
+        img: "/wordpress.svg",
+    },
+
+];
