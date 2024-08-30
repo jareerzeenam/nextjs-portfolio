@@ -30,7 +30,7 @@ const Approach = () => {
         ))}
       </div>
 
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </section>
   );
 };
