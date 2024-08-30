@@ -215,21 +215,25 @@ export const socialMedia = [
     {
         id: 1,
         img: "/github.svg",
+        name: "GitHub",
         link: "https://github.com/jareerzeenam"
     },
     {
         id: 2,
         img: "/link.svg",
+        name: "LinkedIn",
         link: "https://www.linkedin.com/in/jareer-zeenam/"
     },
     {
         id: 3,
         img: "/medium.svg",
+        name: "Medium",
         link: "https://medium.com/@jareerzeenam"
     },
     {
         id: 4,
         img: "/twit.svg",
+        name: "Twitter",
         link: "https://x.com/Jareer28"
     },
 ];

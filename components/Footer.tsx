@@ -46,7 +46,7 @@ const Footer = () => {
               <a href={profile.link}>
                 <img
                   src={profile.img}
-                  alt={profile.id}
+                  alt="social media"
                   width={20}
                   height={20}
                 />
