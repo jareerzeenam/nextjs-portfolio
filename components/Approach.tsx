@@ -4,6 +4,7 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CanvasRevealEffect } from './ui/CanvasRevealEffect';
 import { approach } from '@/data';
+import { BackgroundBeams } from './ui/BackgroundBeam';
 
 const Approach = () => {
   return (
@@ -28,6 +29,8 @@ const Approach = () => {
           </Card>
         ))}
       </div>
+
+      <BackgroundBeams />
     </section>
   );
 };

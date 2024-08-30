@@ -1,10 +1,8 @@
-import { link } from "fs";
-import { or } from "three/webgpu";
-
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
     { name: "Testimonials", link: "#testimonials" },
+    { name: "Skills", link: "#skills" },
     { name: "Contact", link: "#contact" },
 ];
 
@@ -112,34 +110,33 @@ export const projects = [
 export const testimonials = [
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "Jareer first joined Adventus as an Associate Software Engineer. What drew me to his CV from all of the others was his inquisitive mindset (a superpower, important in technology) and zest to learn new technologies. What a great hire! In a very short period of time Jareer went from strength to strength, sharpening his skills in Vue.js, GraphQL, AWS and Microservice Architecture. And soon after, being promoted to Software Engineer. It has been an absolute pleasure having Jareer in the team, he has a bright future ahead and I highly recommend him to any company looking for new talent.",
+        name: "Hayden Pitout",
+        title: "Head of Product Platform Engineering - Adventus.io",
+        image: "/hayden.jpeg",
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "I am writing to highly recommend Jareer, who I have had the pleasure of working with as a team mate at adventus.io. Jareer works as a Software Engineer and has consistently demonstrated his exceptional technical skills and passion for software development. Throughout his time at adventus.io, Jareer has impressed me with his ability to quickly understand complex software development concepts and execute them with a high level of accuracy. He has a strong work ethic and is always eager to take on new challenges and improve his skills. In addition to his technical abilities, Jareer is an energetic and enthusiastic individual who brings a positive energy to the workplace. He is always willing to lend a helping hand to his colleagues and is a great team player. I have no doubt that Jareer will continue to excel in his career as a software engineer and I highly recommend him for any future opportunities. If you have any questions or would like further information, please do not hesitate to reach out to me.",
+        name: "Chinthaka Dilan F",
+        title: "Technical Lead - Gapstars",
+        image: "/chinthaka.jpeg",
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "I wholeheartedly recommend Jareer as a Software Engineer of exceptional skill and unwavering commitment to the world of technology. His unwavering dedication consistently leads to flawless task completion, and he brings a wealth of knowledge to our team. Jareer's eagerness to learn and his willingness to share his expertise make him a true asset to any team.",
+        name: "Senthurkumaran Sivasubramaniam",
+        title: "Senior Software Engineer - Gapstars",
+        image: "/senthur.jpeg",
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
+            "Jareer is a great developer with ninja engineering skills! His ability to listen to product demands, and quickly understand what needs to be done and then get it done is remarkable. He is a person who knows his craft well and is able to deliver high-quality work. When working with others with different skill sets, he is able to explain the technical side of his work well and is also able to absorb what needs to be done in order to achieve the desired outcome. Most of all, he is a good person and easy to work with. ",
+        name: "Sajini Rathnayake",
+        title: "Senior Quality Assurance Engineer - Adventus.io",
+        image: "/sajini.jpeg",
     },
-    {
-        quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Michael Johnson",
-        title: "Director of AlphaStream Technologies",
-    },
+
 ];
 
 export const companies = [
@@ -222,13 +219,18 @@ export const socialMedia = [
     },
     {
         id: 2,
-        img: "/twit.svg",
-        link: "https://x.com/Jareer28"
+        img: "/link.svg",
+        link: "https://www.linkedin.com/in/jareer-zeenam/"
     },
     {
         id: 3,
-        img: "/link.svg",
-        link: "https://www.linkedin.com/in/jareer-zeenam/"
+        img: "/medium.svg",
+        link: "https://medium.com/@jareerzeenam"
+    },
+    {
+        id: 4,
+        img: "/twit.svg",
+        link: "https://x.com/Jareer28"
     },
 ];
 
