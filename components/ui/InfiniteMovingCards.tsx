@@ -1,7 +1,9 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import MagicButton from './MagicButton';
 
 export const InfiniteMovingCards = ({
   items,
@@ -113,13 +115,17 @@ export const InfiniteMovingCards = ({
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(10%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
               <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
-                {item.quote}
+                {item.quote.length > 30
+                  ? `${item.quote.slice(0, 350)}...`
+                  : item.quote}
               </span>
               <div className="relative z-20 flex flex-row items-center mt-5">
                 <span className="flex flex-col gap-1">
                   <div className="me-3">
-                    <img
-                      className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
+                    <Image
+                      width={60}
+                      height={60}
+                      className="object-cover !m-0 !p-0 object-top rounded-full border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
                       src={item.image}
                       alt="profile"
                     />
@@ -132,6 +138,12 @@ export const InfiniteMovingCards = ({
                       {item.title}
                     </span>
                   </div>
+                  <a
+                    href="https://www.linkedin.com/in/jareer-zeenam/#:~:text=all%2089%20skills-,Recommendations,-Recommendations"
+                    className="border border-white-100 px-4 py-2 w-max rounded-lg text-white text-sm font-medium mt-5"
+                  >
+                    Read More
+                  </a>
                 </span>
               </div>
             </blockquote>
