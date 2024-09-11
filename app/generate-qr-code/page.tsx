@@ -7,11 +7,13 @@ function Hero() {
   const [url, setUrl] = useState('');
   const [qrUrl, setQrUrl] = useState('');
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setUrl(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     setQrUrl(url);
   };
