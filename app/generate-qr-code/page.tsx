@@ -63,6 +63,7 @@ function Hero() {
                   light: '#ffffff',
                 },
               }}
+              alt="QR Code"
             />
 
             <button
@@ -74,8 +75,8 @@ function Hero() {
           </div>
         ) : (
           <p>
-            Please enter a URL and click "Generate" to create a QR
-            code.
+            Please enter a URL and click &quot;Generate&quot; to
+            create a QR code.
           </p>
         )}
       </div>
