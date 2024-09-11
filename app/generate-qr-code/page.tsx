@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useQRCode } from 'next-qrcode';
 
-function Hero() {
+export default function QR() {
   const { Image } = useQRCode();
   const [url, setUrl] = useState('');
   const [qrUrl, setQrUrl] = useState('');
@@ -60,7 +60,7 @@ function Hero() {
                 errorCorrectionLevel: 'M',
                 margin: 3,
                 scale: 4,
-                width: 400,
+                width: 500,
                 color: {
                   dark: '#000000',
                   light: '#ffffff',
@@ -85,5 +85,3 @@ function Hero() {
     </div>
   );
 }
-
-export default Hero;
