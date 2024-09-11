@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 'use client';
 import React, { useState } from 'react';
 import { useQRCode } from 'next-qrcode';
@@ -65,7 +66,6 @@ function Hero() {
                   light: '#ffffff',
                 },
               }}
-              alt="QR Code"
             />
 
             <button
