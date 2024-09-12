@@ -30,8 +30,8 @@ export default function QR() {
   };
 
   return (
-    <div>
-      <div className="flex justify-center relative my-20 z-10">
+    <div className="bg-black-100 h-screen">
+      <div className="flex justify-center relative pt-12 pb-5 z-10">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
