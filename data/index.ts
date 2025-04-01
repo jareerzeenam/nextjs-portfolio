@@ -60,9 +60,9 @@ export const gridItems = [
     },
     {
         id: 6,
-        title: "Do you want to start a project together?",
+        title: "Looking to add a passionate Software Engineer to your team?",
         description: "",
-        className: "lg:col-span-1 md:col-span-2 md:row-span-1",
+        className: "lg:col-span-1 md:col-span-2 md:row-span-1 lg:text-3xl!",
         imgClassName: "",
         titleClassName: "justify-center md:max-w-full max-w-60 text-center",
         img: "",
@@ -98,11 +98,11 @@ export const projects = [
     },
     {
         id: 4,
-        title: "Metaversus Concept Landing Page",
-        des: "This repository contains a modern landing page concept for Metaversus, a metaverse-based platform. The landing page is built using Next.js 13, React, Tailwind CSS, and Framer Motion for animated effects.",
-        img: "/metaverse.png",
-        iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg", "/gsap.svg"],
-        link: "https://github.com/jareerzeenam/nextjs-metaverse-app",
+        title: "AI Resume Builder SaaS",
+        des: "This project is a SaaS platform designed to help users create professional resumes effortlessly with the assistance of AI. It supports user authentication, a tiered subscription model, and customization options for advanced users.",
+        img: "/ai-resume.png",
+        iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/re.svg"],
+        link: "https://github.com/jareerzeenam/nextjs-ai-resume-builder",
     },
 
 ];

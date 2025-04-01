@@ -38,8 +38,8 @@ const Hero = () => {
           />
 
           <p className="text-blue-100 text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Jareer, a Software Engineer based in the UK
-            with a strong focus on crafting high-quality APIs,
+            Hi, I&apos;m Jareer, a Software Engineer based in London,
+            UK with a strong focus on crafting high-quality APIs,
             websites, and applications. I am passionate about
             designing intuitive and aesthetically pleasing user
             interfaces, and I thrive on turning complex problems into
