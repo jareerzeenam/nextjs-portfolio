@@ -20,6 +20,8 @@ export default function QR() {
   };
 
   const handleDownload = () => {
+    if (typeof document === 'undefined') return; // prevent server run
+
     const img = document.querySelector('img');
     if (img) {
       const link = document.createElement('a');
