@@ -3,6 +3,7 @@ import { Spotlight } from './ui/Spotlight';
 import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import MagicButton from './ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa';
+import { ImProfile } from 'react-icons/im';
 
 const Hero = () => {
   return (
@@ -53,6 +54,13 @@ const Hero = () => {
               title="See My Work"
               icon={<FaLocationArrow />}
               position="right"
+            />
+          </a>
+          <a href="/resume" target="_blank" rel="noopener noreferrer">
+            <MagicButton
+              title="My Resume"
+              icon={<ImProfile />}
+              position="left"
             />
           </a>
         </div>
