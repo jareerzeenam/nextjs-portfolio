@@ -1,36 +1,30 @@
-import React from 'react';
-import { BentoGrid, BentoGridItem } from './ui/BentoGrid';
 import { gridItems } from '@/data';
+import dynamic from 'next/dynamic';
+
+const BentoGrid = dynamic(
+  () =>
+    import('./ui/BentoGrid').then((mod) => ({
+      default: mod.BentoGrid,
+    })),
+  { ssr: false }
+);
+
+const BentoGridItem = dynamic(
+  () =>
+    import('./ui/BentoGrid').then((mod) => ({
+      default: mod.BentoGridItem,
+    })),
+  { ssr: false }
+);
 
 const Grid = () => {
   return (
     <section id="about">
-      {/* <BentoGrid>
-        {gridItems.map(
-          ({
-            id,
-            title,
-            description,
-            className,
-            img,
-            imgClassName,
-            spareImg,
-            titleClassName,
-          }) => (
-            <BentoGridItem
-              id={id}
-              key={id}
-              title={title}
-              description={description}
-              className={className}
-              img={img}
-              imgClassName={imgClassName}
-              titleClassName={titleClassName}
-              spareImg={spareImg}
-            />
-          )
-        )}
-      </BentoGrid> */}
+      <BentoGrid>
+        {gridItems.map((item) => (
+          <BentoGridItem key={item.id} {...item} />
+        ))}
+      </BentoGrid>
     </section>
   );
 };
