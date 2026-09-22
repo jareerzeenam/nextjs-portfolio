@@ -1,33 +1,58 @@
-import React from 'react';
-import Title from './ui/Title';
+'use client';
+
 import { skills } from '@/data';
-import { Boxes } from './ui/BackgroundBoxes';
-import { BackgroundBeams } from './ui/BackgroundBeam';
+import { cn } from '@/lib/utils';
+import Title from './ui/Title';
+
+const midpoint = Math.ceil(skills.length / 2);
+const rows = [skills.slice(0, midpoint), skills.slice(midpoint)];
+
+const SkillRow = ({
+  items,
+  reverse = false,
+}: {
+  items: typeof skills;
+  reverse?: boolean;
+}) => {
+  const loop = [...items, ...items];
+
+  return (
+    <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]">
+      <ul
+        className={cn(
+          'flex w-max min-w-full shrink-0 animate-scroll gap-3 py-2 hover:[animation-play-state:paused]'
+        )}
+        style={{
+          animationDirection: reverse ? 'reverse' : 'forwards',
+          ['--animation-duration' as string]: '70s',
+        }}
+      >
+        {loop.map((skill, index) => (
+          <li
+            key={`${skill.title}-${index}`}
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white"
+          >
+            <img src={skill.img} alt="" className="h-5 w-5 object-contain" />
+            <span className="whitespace-nowrap">{skill.title}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Skills = () => {
   return (
-    <div id="skills">
-      <Title primary="My" secondary="Skills" />
-      <div className="mt-4 h-200 relative w-full overflow-hidden bg-black-100 flex flex-col items-center justify-center rounded-lg">
-        <div className="absolute inset-0 w-full h-200 bg-black-100 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-
-        {/* <BackgroundBeams /> */}
-        <div className="z-20">
-          <div className="flex flex-wrap items-center justify-center p-4 gap-x-4 gap-y-4 my-10">
-            {/* <Boxes /> */}
-            {skills.map((skill, index) => (
-              <div
-                className="z-10 gap-2 font-bold flex items-center justify-center border border-white/[.2] rounded bg-black-100 p-4"
-                key={index}
-              >
-                <img src={skill.img} alt={skill.title} />
-                <h3>{skill.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section className="scroll-mt-28 py-16 md:py-24" id="skills">
+      <Title primary="My" secondary="skills" />
+      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-white-200 sm:text-base">
+        The tools I use most often across backend, frontend, and delivery.
+      </p>
+      <div className="mt-10 flex flex-col gap-3">
+        <SkillRow items={rows[0]} />
+        <SkillRow items={rows[1]} reverse />
       </div>
-    </div>
+    </section>
   );
 };
 

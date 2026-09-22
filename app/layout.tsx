@@ -6,8 +6,9 @@ import { ThemeProvider } from './provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Jareer's Portfolio",
-  description: 'Explore my projects and learn more about me.',
+  title: 'Jareer Zeenam | Software Engineer',
+  description:
+    'Full-stack software engineer in London. Selected projects, experience, and writing.',
 };
 
 export default function RootLayout({
@@ -16,16 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

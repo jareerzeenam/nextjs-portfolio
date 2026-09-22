@@ -32,6 +32,13 @@ export const InfiniteMovingCards = ({
   const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
+      if (scrollerRef.current.dataset.cloned === 'true') {
+        getDirection();
+        getSpeed();
+        setStart(true);
+        return;
+      }
+
       const scrollerContent = Array.from(
         scrollerRef.current.children
       );
@@ -43,6 +50,7 @@ export const InfiniteMovingCards = ({
         }
       });
 
+      scrollerRef.current.dataset.cloned = 'true';
       getDirection();
       getSpeed();
       setStart(true);
@@ -87,7 +95,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        'scroller relative z-20 w-screen overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
+        'scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_12%,white_88%,transparent)]',
         className
       )}
     >
@@ -101,7 +109,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-10 md:w-[60vw]"
+            className="relative w-[min(88vw,34rem)] max-w-full flex-shrink-0 rounded-2xl border border-b-0 border-slate-800 p-5 md:w-[36rem] md:p-8"
             style={{
               background: 'rgb(4,7,29)',
               backgroundColor:

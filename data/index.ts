@@ -1,6 +1,7 @@
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
+    { name: "Experience", link: "#experience" },
     { name: "Testimonials", link: "#testimonials" },
     { name: "Skills", link: "#skills" },
     { name: "Contact", link: "#contact" },
@@ -174,6 +175,17 @@ export const companies = [
 
 export const workExperience = [
     {
+        id: 5,
+        title: "Software Developer",
+        area: "Full Stack",
+        company: "Teapot Creative",
+        desc: "Building websites and custom web software for agency clients, from the interface through to the backend.",
+        className: "md:col-span-2",
+        thumbnail: "/exp-teapot.svg",
+        current: true,
+        link: "https://teapot.agency",
+    },
+    {
         id: 1,
         title: "Software Engineer",
         area: "Full Stack",
@@ -240,6 +252,16 @@ export const socialMedia = [
 
 export const blogs = [
     {
+        title: "How Our Side Hustle Became a Full-Fledged Product: Lessons from Building a Full-Stack App with Friends",
+        description: "Architecture, teamwork, and a Laravel and Vue stack, from a side project to a product the client owned.",
+        link: "https://medium.com/@jareerzeenam/how-our-side-hustle-became-a-full-fledged-product-lessons-from-building-a-full-stack-app-with-d9c808cd54f1",
+    },
+    {
+        title: "From Junior to Senior: What Really Sets Senior Software Engineers Apart?",
+        description: "Scale, complexity, and responsibility are what separate senior engineers from juniors, not syntax alone.",
+        link: "https://medium.com/@jareerzeenam/from-junior-to-senior-what-really-sets-senior-software-engineers-apart-cdc633b95fff",
+    },
+    {
         title: "Implementing GraphQL and Apollo Server with Next.js 13.4: A Simple Guide (App Directory)",
         description: "Explore the fusion of GraphQL and Apollo Server with Next.js 13.4 in a step-by-step journey.",
         link: "https://medium.com/@jareerzeenam/implementing-graphql-and-apollo-server-with-next-js-13-4-a-simple-guide-app-directory-77e38eb697e3",
@@ -261,28 +283,42 @@ export const approach = [
         id: 1,
         title: "Planning & Discovery",
         order: "Phase 1",
-        description: "Understanding the project's goals, requirements, and audience. Collaborating with stakeholders to define scope, objectives, and timelines.",
+        description: "Start with the problem, the people using it, and what done actually looks like.",
+        points: [
+            "Clarify goals, users, and constraints before writing code",
+            "Agree scope, success criteria, and a realistic timeline",
+            "Call out risks early: integrations, data, and edge cases",
+        ],
         className: "bg-gradient-to-r from-red-500 to-black-100",
     },
     {
         id: 2,
         title: "Design & Development",
         order: "Phase 2",
-        description: "Transforming ideas into functional, user-friendly solutions. Writing clean, maintainable code while focusing on scalability and efficiency.",
+        description: "Turn that plan into an interface and a codebase that stay easy to change.",
+        points: [
+            "Shape the UI and the API together so they stay coherent",
+            "Write clear, maintainable code instead of one-off fixes",
+            "Build in small slices so progress stays visible",
+        ],
         className: "bg-gradient-to-r from-black-100 to-yellow-500",
         colors: [
             [236, 72, 153],
             [232, 121, 249],
-        ]
-
+        ],
     },
     {
         id: 3,
         title: "Testing & Deployment",
         order: "Phase 3",
-        description: "Conducting rigorous testing to ensure quality. Managing smooth deployment and providing ongoing support post-launch.",
+        description: "Ship something you can trust, then stay with it after it is live.",
+        points: [
+            "Test the paths people actually use before release",
+            "Deploy in a way that can be checked and rolled back",
+            "Follow through on fixes once the work is in production",
+        ],
         className: "bg-gradient-to-r from-green-500 to-black-100",
-        colors: [[125, 211, 252]]
+        colors: [[125, 211, 252]],
     },
 ];
 

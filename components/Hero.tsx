@@ -1,71 +1,64 @@
-import React from 'react';
-import { Spotlight } from './ui/Spotlight';
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
-import MagicButton from './ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
+import { AuroraBackground } from './ui/aurora-background';
+import { FlipWords } from './ui/flip-words';
+import MagicButton from './ui/MagicButton';
+import { Spotlight } from './ui/Spotlight';
+
+const words = ['reliable software.', 'clear interfaces.', 'shipped products.'];
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="top-10 left-full h-[80vh] w-[50vh]"
-          fill="purple"
-        />
-        <Spotlight
-          className="top-28 left-80 h-[80vh] w-[50vh]"
-          fill="blue"
-        />
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pb-16 pt-28 sm:pt-32"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <Spotlight className="-left-10 -top-40 h-screen md:-left-32 md:-top-20" fill="white" />
+        <Spotlight className="left-full top-10 h-[70vh] w-[40vw]" fill="purple" />
+        <Spotlight className="left-1/2 top-24 h-[60vh] w-[40vw]" fill="blue" />
+        <AuroraBackground className="h-full" />
+        <div className="absolute inset-0 bg-grid-white/[0.04] [mask-image:radial-gradient(ellipse_at_center,transparent_15%,black)]" />
       </div>
 
-      <div className="h-screen w-full bg-black-100 bg-grid-white/[0.06] flex items-center justify-center absolute top-0 left-0">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center  bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-      </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+        <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.28em] text-blue-100 sm:text-xs">
+          Software Engineer · London, UK
+        </p>
 
-      <div className="flex justify-center relative my-20 z-10">
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          {/* <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
-          </p> */}
+        <h1 className="text-balance text-3xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+          Turning complex problems into
+          <span className="relative mt-2 flex min-h-[1.3em] items-center justify-center sm:mt-3">
+            <FlipWords words={words} className="text-purple" />
+          </span>
+        </h1>
 
-          <TextGenerateEffect
-            words="Transforming Concepts into Seamless Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-          />
+        <p className="mt-6 max-w-xl text-sm leading-relaxed text-white-200 sm:text-lg">
+          I&apos;m Jareer, a full-stack engineer. I design and build APIs, websites, and
+          applications, with equal care for how they look and how they hold up in
+          production.
+        </p>
 
-          <p className="text-blue-100 text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Jareer, a Software Engineer based in London,
-            UK with a strong focus on crafting high-quality APIs,
-            websites, and applications. I am passionate about
-            designing intuitive and aesthetically pleasing user
-            interfaces, and I thrive on turning complex problems into
-            elegant, functional solutions. My expertise spans both
-            frontend and backend development, enabling me to deliver
-            comprehensive and seamless digital experiences.
-          </p>
-
-          <a href="#about">
+        <div className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+          <a href="#projects" className="w-full sm:w-auto">
             <MagicButton
-              title="See My Work"
+              title="View projects"
               icon={<FaLocationArrow />}
               position="right"
+              className="md:mt-0 md:w-52"
             />
           </a>
-          <a href="/resume" target="_blank" rel="noopener noreferrer">
+          <a href="/resume" className="w-full sm:w-auto">
             <MagicButton
-              title="My Resume"
+              title="Resume"
               icon={<ImProfile />}
               position="left"
+              className="md:mt-0 md:w-52"
             />
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { gridItems } from '@/data';
 import dynamic from 'next/dynamic';
 
@@ -19,7 +21,7 @@ const BentoGridItem = dynamic(
 
 const Grid = () => {
   return (
-    <section id="about">
+    <section id="about" className="scroll-mt-28 py-16 md:py-24">
       <BentoGrid>
         {gridItems.map((item) => (
           <BentoGridItem key={item.id} {...item} />

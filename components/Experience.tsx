@@ -1,46 +1,53 @@
 import { workExperience } from '@/data';
-import React from 'react';
-import { Button } from './ui/MovingBoarders';
 import Title from './ui/Title';
-import { BackgroundBeamsWithCollision } from './ui/BackgroundBeamCollision';
+import { Timeline } from './ui/timeline';
 
 const Experience = () => {
-  return (
-    <div className="py-20" id="testimonials">
-      <Title primary="My" secondary="Work Experience" />
-      <BackgroundBeamsWithCollision>
-        <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-          {workExperience.map((card) => (
-            <Button
-              key={card.id}
-              duration={Math.floor(Math.random() * 10000) + 10000}
-              borderClassName="1.75rem"
-              className="flex-1 text-white border-slate-800"
-            >
-              <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
-                <img
-                  src={card.thumbnail}
-                  alt={card.thumbnail}
-                  className="lg:w-32 md:w-20 w-16"
-                />
-                <div className="lg:ms-5">
-                  <h1 className="text-start text-xl md:text-1xl font-bold">
-                    {card.title}
-                  </h1>
-                  <p className="text-start text-gray-400 text-xs mb-3 italic">
-                    {card.company}
-                  </p>
-
-                  <p className="text-start text-white-100 mt-3 font-semibold">
-                    {card.desc}
-                  </p>
-                </div>
-              </div>
-            </Button>
-          ))}
+  const data = workExperience.map((card) => ({
+    title: card.company,
+    content: (
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
+        <div className="flex items-start gap-4">
+          <img src={card.thumbnail} alt="" className="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-purple">
+                {card.area}
+              </p>
+              {card.current && (
+                <span className="rounded-full border border-purple/40 bg-purple/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-purple">
+                  Present
+                </span>
+              )}
+            </div>
+            <h3 className="mt-1 text-lg font-semibold text-white">{card.title}</h3>
+            {card.link && (
+              <a
+                href={card.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-block text-sm text-white-200 underline-offset-4 hover:text-white hover:underline"
+              >
+                {card.link.replace(/^https?:\/\//, '')}
+              </a>
+            )}
+            <p className="mt-3 text-sm leading-relaxed text-[#C1C2D3] sm:text-base">{card.desc}</p>
+          </div>
         </div>
-      </BackgroundBeamsWithCollision>
-    </div>
+      </div>
+    ),
+  }));
+
+  return (
+    <section className="scroll-mt-28 py-16 md:py-24" id="experience">
+      <Title primary="My" secondary="work experience" />
+      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-white-200 sm:text-base">
+        Product engineering across backend systems, APIs, and the interfaces in front of them.
+      </p>
+      <div className="mt-6">
+        <Timeline data={data} />
+      </div>
+    </section>
   );
 };
 

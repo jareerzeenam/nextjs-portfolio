@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils';
 import { BackgroundGradientAnimation } from './GradientBg';
-import { GlobeDemo } from './GridGlobe';
 import Lottie from 'react-lottie';
 import { useState } from 'react';
 import animationData from '@/data/confetti.json';
@@ -112,7 +111,18 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 && <GlobeDemo />}
+          {id === 2 && (
+            <div className="z-10 mt-4 flex flex-wrap gap-2">
+              {['London, UK', 'GMT / BST', 'Remote-friendly'].map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white-100"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          )}
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 lg:gap-4">

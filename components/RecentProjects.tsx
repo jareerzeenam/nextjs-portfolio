@@ -1,103 +1,79 @@
 'use client';
 
-import { FaLocationArrow } from 'react-icons/fa6';
-
 import { projects } from '@/data';
-import { PinContainer } from './ui/3d-pin';
-import Title from './ui/Title';
-import { FaGithub } from 'react-icons/fa';
-import MagicButton from './ui/MagicButton';
 import Image from 'next/image';
+import { FaGithub } from 'react-icons/fa';
+import { BackgroundGradient } from './ui/background-gradient';
+import MagicButton from './ui/MagicButton';
+import Title from './ui/Title';
 
 const RecentProjects = () => {
   return (
-    <div className="py-20" id="projects">
-      <Title
-        primary="A small selection of"
-        secondary="recent projects"
-      />
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-16 gap-y-1">
+    <section className="scroll-mt-28 py-16 md:py-24" id="projects">
+      <Title primary="A small selection of" secondary="recent projects" />
+      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((item) => (
-          <div
-            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
+          <BackgroundGradient
             key={item.id}
+            containerClassName="h-full rounded-3xl"
+            className="flex h-full flex-col rounded-[22px] bg-black-100 p-4 sm:p-5"
           >
-            <PinContainer title={item.link} href={item.link}>
-              <div className="relative flex items-center justify-center sm:w-[570px] sm:h-[40vh] w-[80vw] overflow-hidden h-[30vh] mb-10">
-                <div
-                  className="relative w-full h-full overflow-hidden lg:rounded-3xl"
-                  style={{ backgroundColor: '#13162D' }}
-                >
-                  <Image
-                    width={100}
-                    height={100}
-                    src="/bg.png"
-                    alt="bgimg"
-                  />
-                </div>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-full flex-col"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#13162D]">
                 <Image
-                  width={570}
-                  height={400}
                   src={item.img}
-                  alt="cover"
-                  className="z-10 w-full h-full absolute bottom-0"
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover object-top"
                 />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {item.title}
-              </h1>
-
-              <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
-                style={{
-                  color: '#BEC1DD',
-                  margin: '1vh 0',
-                }}
-              >
+              <h2 className="mt-5 text-lg font-semibold text-white sm:text-xl">{item.title}</h2>
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[#BEC1DD] sm:text-base">
                 {item.des}
               </p>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
+              <div className="mt-6 flex items-center justify-between gap-3">
                 <div className="flex items-center">
-                  {item.iconLists.map((icon, index) => (
-                    <div
-                      key={index}
-                      className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                      style={{
-                        transform: `translateX(-${5 * index + 2}px)`,
-                      }}
-                    >
-                      <Image
-                        width={100}
-                        height={100}
-                        src={icon}
-                        alt="icon5"
-                        className="p-2"
-                      />
-                    </div>
-                  ))}
+                  {item.iconLists.map((icon, index) => {
+                    const src = icon.startsWith('/') ? icon : `/${icon}`;
+                    return (
+                      <div
+                        key={src}
+                        className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black"
+                        style={{ transform: `translateX(-${index * 8}px)` }}
+                      >
+                        <Image src={src} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
+                      </div>
+                    );
+                  })}
                 </div>
-
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    Check On GitHub
-                  </p>
-                  <FaGithub className="ms-3" color="#CBACF9" />
-                </div>
+                <span className="inline-flex shrink-0 items-center gap-2 text-sm text-purple">
+                  GitHub
+                  <FaGithub />
+                </span>
               </div>
-            </PinContainer>
-          </div>
+            </a>
+          </BackgroundGradient>
         ))}
-        <a href="https://github.com/jareerzeenam">
+      </div>
+      <div className="mt-10 flex justify-center">
+        <a href="https://github.com/jareerzeenam" target="_blank" rel="noopener noreferrer">
           <MagicButton
-            title="See More Projects"
+            title="More on GitHub"
             icon={<FaGithub />}
             position="right"
+            className="md:mt-0 md:w-56"
           />
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
