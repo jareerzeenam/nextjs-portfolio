@@ -32,7 +32,7 @@ export default function QR() {
   };
 
   return (
-    <div className="bg-black-100 h-screen">
+    <div className="bg-sky h-screen">
       <div className="flex justify-center relative pt-12 pb-5 z-10">
         <form onSubmit={handleSubmit}>
           <input

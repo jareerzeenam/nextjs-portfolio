@@ -1,31 +1,28 @@
-import Approach from '@/components/Approach';
-import Blogs from '@/components/Blog';
-import Clients from '@/components/Clients';
-import Experience from '@/components/Experience';
-import Footer from '@/components/Footer';
-import Grid from '@/components/Grid';
-import Hero from '@/components/Hero';
-import SiteNavbar from '@/components/Navbar';
-import RecentProjects from '@/components/RecentProjects';
+import Contact from '@/components/Contact';
+import Levels from '@/components/Levels';
+import Overworld from '@/components/overworld/Overworld';
+import Projects from '@/components/Projects';
+import Recommendations from '@/components/Recommendations';
+import SiteHeader from '@/components/SiteHeader';
 import Skills from '@/components/Skills';
+import Writing from '@/components/Writing';
 
 export default function Home() {
   return (
-    <div className="bg-black-100 text-white">
-      <SiteNavbar />
-      <main className="overflow-x-clip">
-        <Hero />
-        <div className="mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-          <Grid />
-          <RecentProjects />
-          <Clients />
-          <Experience />
-          <Approach />
-          <Blogs />
-          <Skills />
-          <Footer />
-        </div>
+    <>
+      <SiteHeader />
+      {/* Clip sideways overflow from scroll motion here; on <body> it leaks to the viewport. */}
+      <div className="overflow-x-clip">
+      <main id="main">
+        <Overworld />
+        <Levels />
+        <Projects />
+        <Recommendations />
+        <Skills />
+        <Writing />
       </main>
-    </div>
+      <Contact />
+      </div>
+    </>
   );
 }

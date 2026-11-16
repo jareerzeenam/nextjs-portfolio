@@ -4,82 +4,179 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
+    color-scheme: dark;
+    --sky: #141c2b;
+    --bone: #ece3cf;
+    --ochre: #e3a93b;
+    --clay: #c8553d;
+    --moss: #6e9a73;
   }
 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+  html {
+    background: var(--sky);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-color: #3a4763 var(--sky);
   }
-}
 
-@layer base {
-  * {
-    @apply border-border !scroll-smooth;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
+
   body {
-    @apply bg-background text-foreground text-white;
+    @apply bg-sky font-sans text-bone antialiased;
+    font-feature-settings: 'ss01', 'tnum' 0;
+    text-rendering: optimizeLegibility;
   }
-  button {
-    @apply active:outline-none;
+
+  ::selection {
+    background: var(--ochre);
+    color: #141c2b;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--sky);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2c3850;
+    border: 2px solid var(--sky);
+    border-radius: 6px;
   }
 }
 
-@layer utilities {
-  .heading {
-    @apply text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl;
+@layer components {
+  /* One content edge for every section. */
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-4 sm:px-6 lg:px-10;
+  }
+
+  /* Archivo stretched wide: stage titles and section headings. */
+  .display {
+    font-stretch: 118%;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  /* Archivo narrowed: HUD labels, level numbers, dates. */
+  .hud {
+    font-stretch: 72%;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .h2 {
+    @apply display text-[2.5rem] sm:text-6xl lg:text-7xl;
+  }
+
+  /* Tool logos as one monochrome set in bone ink, whatever colours the files ship in. */
+  .icon-ink {
+    filter: brightness(0) invert(93%) sepia(12%) saturate(330%) hue-rotate(2deg);
+  }
+
+  /* Stage plate: square, bone hairline, an ochre notch in the top-left corner. */
+  .plate {
+    @apply relative border border-bone/15 bg-sky-deep/90;
+  }
+  .plate::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 14px;
+    height: 3px;
+    background: var(--ochre);
+  }
+
+  /* Buttons: one primary (ochre ink), one secondary (bone hairline). */
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 px-6 text-[0.95rem] font-semibold transition-[transform,background-color,color,border-color] duration-200 ease-out;
+    font-stretch: 100%;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 80ms;
+  }
+  .btn-primary {
+    @apply btn bg-ochre text-sky hover:bg-[#EDB952];
+  }
+  .btn-secondary {
+    @apply btn border border-bone/40 text-bone hover:border-bone hover:bg-bone/5;
+  }
+
+  /* Text link with a drawn underline. */
+  .link {
+    @apply relative inline-flex items-center gap-1.5 text-bone;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+  }
+  .link:hover {
+    background-size: 100% 1px;
+    color: var(--ochre);
+  }
+}
+
+/* Hero entrance: once, on load. Children rise into place in order. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.enter > * {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.enter > *:nth-child(2) { animation-delay: 70ms; }
+.enter > *:nth-child(3) { animation-delay: 140ms; }
+.enter > *:nth-child(4) { animation-delay: 210ms; }
+.enter-late > * { animation-delay: 380ms; }
+.enter-late > *:nth-child(2) { animation-delay: 440ms; }
+.enter-late > *:nth-child(3) { animation-delay: 500ms; }
+
+/* Stage card: the new level slides in from the path direction. */
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+    filter: blur(3px);
+  }
+}
+.stage-swap {
+  animation: stage-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+  .enter > *,
+  .stage-swap {
+    animation: none;
   }
 }

@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+.agents
+.aider-desk
+.claude
+# design-skill tooling
+.taste-skill/
+.impeccable/review/
+.impeccable/tools/
+.impeccable/decision-round-1.json

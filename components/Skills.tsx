@@ -1,59 +1,49 @@
 'use client';
 
-import { skills } from '@/data';
-import { cn } from '@/lib/utils';
-import Title from './ui/Title';
+import { skillGroups } from '@/data';
+import { Arrive } from './motion/scroll';
 
-const midpoint = Math.ceil(skills.length / 2);
-const rows = [skills.slice(0, midpoint), skills.slice(midpoint)];
-
-const SkillRow = ({
-  items,
-  reverse = false,
-}: {
-  items: typeof skills;
-  reverse?: boolean;
-}) => {
-  const loop = [...items, ...items];
-
+export default function Skills() {
   return (
-    <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]">
-      <ul
-        className={cn(
-          'flex w-max min-w-full shrink-0 animate-scroll gap-3 py-2 hover:[animation-play-state:paused]'
-        )}
-        style={{
-          animationDirection: reverse ? 'reverse' : 'forwards',
-          ['--animation-duration' as string]: '70s',
-        }}
-      >
-        {loop.map((skill, index) => (
-          <li
-            key={`${skill.title}-${index}`}
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white"
-          >
-            <img src={skill.img} alt="" className="h-5 w-5 object-contain" />
-            <span className="whitespace-nowrap">{skill.title}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <section id="skills" className="scroll-mt-16 border-t border-bone/10 py-24 sm:py-32">
+      <div className="wrap">
+        <h2 className="h2 max-w-[14ch]">Skills and tools</h2>
+        <p className="mt-6 max-w-[38rem] text-lg leading-relaxed text-bone-dim">
+          A PHP and Laravel specialist who works across the stack, from the database to the
+          interface.
+        </p>
 
-const Skills = () => {
-  return (
-    <section className="scroll-mt-28 py-16 md:py-24" id="skills">
-      <Title primary="My" secondary="skills" />
-      <p className="mx-auto mt-4 max-w-xl text-center text-sm text-white-200 sm:text-base">
-        The tools I use most often across backend, frontend, and delivery.
-      </p>
-      <div className="mt-10 flex flex-col gap-3">
-        <SkillRow items={rows[0]} />
-        <SkillRow items={rows[1]} reverse />
+        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {skillGroups.map((g, i) => (
+            <Arrive
+              key={g.title}
+              depth={260}
+              rise={30}
+              swing={[22, 0, -22][i % 3]}
+              delay={(i % 3) * 0.1}
+              origin={['100% 50%', '50% 100%', '0% 50%'][i % 3]}
+              className="border-t border-bone/15 pt-5"
+            >
+              <h3 className="hud text-[0.85rem] text-ochre">{g.title}</h3>
+              <ul className="mt-4 space-y-1">
+                {g.skills.map((s) => (
+                  <li key={s.name} className="flex min-h-9 items-center gap-3 text-[0.98rem] text-bone">
+                    {s.icon ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={s.icon} alt="" width={20} height={20} className="icon-ink h-5 w-5 object-contain" />
+                    ) : (
+                      <span aria-hidden className="grid h-5 w-5 place-items-center">
+                        <span className="h-[5px] w-[5px] bg-bone-mute" />
+                      </span>
+                    )}
+                    {s.name}
+                  </li>
+                ))}
+              </ul>
+            </Arrive>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
