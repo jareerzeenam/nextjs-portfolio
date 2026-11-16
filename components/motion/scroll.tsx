@@ -101,20 +101,35 @@ export function Arrive({
 }
 
 /** Words that light up as the reader scrolls through them. */
-export function ScrubWords({ text, className }: { text: string; className?: string }) {
+export function ScrubWords({
+  text,
+  className,
+  prefix,
+  suffix,
+}: {
+  text: string;
+  className?: string;
+  prefix?: ReactNode;
+  suffix?: ReactNode;
+}) {
+  // Measured on a block element: an inline span that wraps over several lines
+  // reports an unreliable box, which left the last words unlit.
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedAfterMount();
-  const p = useScrub(ref, ['start 88%', 'end 52%']);
+  const p = useScrub(ref, ['start 90%', 'end 66%']);
   const words = text.split(' ');
-  if (reduce) return <span className={className}>{text}</span>;
   return (
-    <span ref={ref} className={className}>
-      {words.map((w, i) => (
-        <Word key={i} p={p} from={i / words.length} to={(i + 1) / words.length}>
-          {w}
-          {i < words.length - 1 ? ' ' : ''}
-        </Word>
-      ))}
+    <span ref={ref} className={`block ${className ?? ''}`}>
+      {prefix}
+      {reduce
+        ? text
+        : words.map((w, i) => (
+            <Word key={i} p={p} from={(i / words.length) * 0.92} to={((i + 1) / words.length) * 0.92}>
+              {w}
+              {i < words.length - 1 ? ' ' : ''}
+            </Word>
+          ))}
+      {suffix}
     </span>
   );
 }

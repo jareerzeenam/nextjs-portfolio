@@ -78,7 +78,7 @@ function LevelItem({ level: l, index: i }: { level: Level; index: number }) {
         ref={node}
         aria-hidden
         style={reduce ? undefined : { backgroundColor: bg, color: fg, transform: scale }}
-        className="hud relative grid h-11 w-11 place-items-center border border-ochre bg-sky text-[0.9rem] text-ochre"
+        className={`hud relative grid h-11 w-11 place-items-center border border-ochre text-[0.9rem] ${reduce ? 'bg-ochre text-sky' : 'bg-sky text-ochre'}`}
       >
         {i + 1}
       </motion.span>

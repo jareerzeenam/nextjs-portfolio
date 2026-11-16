@@ -110,7 +110,7 @@ function Shot({ src, alt, priority = false }: { src: string; alt: string; priori
         fill
         priority={priority}
         sizes="(min-width: 1024px) 60vw, (min-width: 768px) 33vw, 100vw"
-        className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        className="object-cover object-left-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       />
     </div>
   );

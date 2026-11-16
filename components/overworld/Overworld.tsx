@@ -112,10 +112,10 @@ export default function Overworld() {
       />
 
       <div className="pointer-events-none relative mt-auto">
-        <div className="wrap grid gap-8 pb-8 pt-28 sm:pb-10 lg:grid-cols-[minmax(0,1fr)_23rem] lg:items-end lg:gap-12 lg:pb-14">
-          <div className="enter pointer-events-auto min-w-0 max-w-[40rem]">
+        <div className="wrap grid gap-8 pb-8 pt-28 sm:pb-10 lg:grid-cols-[minmax(0,37rem)_23rem] lg:items-end lg:justify-between lg:gap-12 lg:pb-12">
+          <div className="enter pointer-events-auto min-w-0 max-w-[40rem] lg:plate lg:p-6 xl:p-8">
             <h1>
-              <span className="display block text-[3.1rem] sm:text-[5.2rem] lg:text-[6rem]">Jareer Zeenam</span>
+              <span className="display block text-[3.1rem] sm:text-[5.2rem] lg:text-[3.6rem] xl:text-[4.75rem]">Jareer Zeenam</span>
               <span className="mt-3 block text-xl font-semibold text-bone sm:text-2xl">
                 Full-stack software engineer, London
               </span>

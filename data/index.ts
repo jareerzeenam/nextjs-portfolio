@@ -316,8 +316,8 @@ export const skillGroups: { title: string; skills: Skill[] }[] = [
   {
     title: 'Front end',
     skills: [
-      { name: 'TypeScript', icon: '/ts.svg' },
-      { name: 'JavaScript', icon: '/javascript.svg' },
+      { name: 'TypeScript', icon: '/icons/typescript.svg' },
+      { name: 'JavaScript', icon: '/icons/javascript.svg' },
       { name: 'Next.js', icon: '/next.svg' },
       { name: 'React', icon: '/re.svg' },
       { name: 'Vue.js', icon: '/vue.svg' },
@@ -330,7 +330,7 @@ export const skillGroups: { title: string; skills: Skill[] }[] = [
   {
     title: 'Data',
     skills: [
-      { name: 'MySQL', icon: '/mysql.svg' },
+      { name: 'MySQL', icon: '/icons/mysql.svg' },
       { name: 'MongoDB', icon: '/mongodb.svg' },
       { name: 'DynamoDB', icon: '/dynamodb.svg' },
       { name: 'Redis', icon: '/redis.svg' },
@@ -366,7 +366,7 @@ export const skillGroups: { title: string; skills: Skill[] }[] = [
     title: 'Commerce and CMS',
     skills: [
       { name: 'WordPress', icon: '/wordpress.svg' },
-      { name: 'WooCommerce', icon: '/icons/woocommerce.svg' },
+      { name: 'WooCommerce', icon: '/icons/woo.svg' },
       { name: 'PrestaShop', icon: '/icons/prestashop.svg' },
       { name: 'Stripe', icon: '/stripe.svg' },
     ],

@@ -348,11 +348,13 @@ function Island({
   hovered,
   onSelect,
   onHover,
+  side,
 }: {
   index: number;
   kind: Landmark;
   m: Mats;
   still: boolean;
+  side: boolean;
   selected: boolean;
   hovered: boolean;
   onSelect: (i: number) => void;
@@ -423,7 +425,7 @@ function Island({
           </mesh>
         </group>
       ))}
-      <group position={[0, ISLAND_TOP, 0]}>
+      <group position={[0, ISLAND_TOP, 0]} rotation={[0, side ? Math.PI / 2 : 0, 0]}>
         <LandmarkModel kind={kind} m={m} still={still} />
       </group>
     </group>
@@ -434,16 +436,17 @@ function Island({
 
 const DOTS = 190;
 
-function Path({ still }: { still: boolean }) {
+function Path({ still, side }: { still: boolean; side: boolean }) {
   const mesh = useRef<THREE.InstancedMesh>(null);
   const { points, futureFrom } = useMemo(() => {
     const ctrl: THREE.Vector3[] = [];
     ISLANDS.forEach((p, i) => {
-      const top = new THREE.Vector3(p[0], p[1] + ISLAND_TOP + 0.03, p[2] + 0.95);
+      const edge = side ? [0.95, 0] : [0, 0.95];
+      const top = new THREE.Vector3(p[0] + edge[0], p[1] + ISLAND_TOP + 0.03, p[2] + edge[1]);
       ctrl.push(top);
       const next = ISLANDS[i + 1];
       if (next) {
-        const nTop = new THREE.Vector3(next[0], next[1] + ISLAND_TOP + 0.03, next[2] + 0.95);
+        const nTop = new THREE.Vector3(next[0] + edge[0], next[1] + ISLAND_TOP + 0.03, next[2] + edge[1]);
         ctrl.push(top.clone().lerp(nTop, 0.5).add(new THREE.Vector3(0, 0.9, 0)));
       }
     });
@@ -461,7 +464,7 @@ function Path({ still }: { still: boolean }) {
       }
     });
     return { points: pts, futureFrom: idx };
-  }, []);
+  }, [side]);
 
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const colors = useMemo(() => {
@@ -528,28 +531,26 @@ function Stars() {
 
 const OVERVIEW_TARGET = new THREE.Vector3(0, 0.6, -2.7);
 
-function CameraRig({ selected, still }: { selected: number | null; still: boolean }) {
+function CameraRig({ selected, still, side }: { selected: number | null; still: boolean; side: boolean }) {
   const { camera, size, invalidate } = useThree();
-  const portrait = size.width < size.height;
-  const pos = useRef(new THREE.Vector3(0, 22, 30));
+  const pos = useRef(new THREE.Vector3(30, 20, -2.7));
   const vel = useRef(new THREE.Vector3());
   const look = useRef(OVERVIEW_TARGET.clone());
   const lookVel = useRef(new THREE.Vector3());
   const goalPos = useMemo(() => new THREE.Vector3(), []);
   const goalLook = useMemo(() => new THREE.Vector3(), []);
 
-  // Leave room for the HTML: the map sits right of the copy on wide screens,
-  // above it on phones.
+  // Wide screens: the map fills the frame, lifted a little above the plates.
+  // Phones: the map sits above the copy.
   useEffect(() => {
     const cam = camera as THREE.PerspectiveCamera;
     const w = size.width;
     const h = size.height;
-    if (portrait) cam.setViewOffset(w, h, 0, h * 0.33, w, h);
-    else if (w >= 1024) cam.setViewOffset(w, h, -w * 0.22, h * 0.16, w, h);
-    else cam.setViewOffset(w, h, 0, h * 0.14, w, h);
+    if (side) cam.setViewOffset(w, h, 0, h * (w / h < 1.5 ? 0.2 : 0.1), w, h);
+    else cam.setViewOffset(w, h, 0, h * 0.33, w, h);
     cam.updateProjectionMatrix();
     invalidate();
-  }, [camera, size.width, size.height, portrait, invalidate]);
+  }, [camera, size.width, size.height, side, invalidate]);
 
   useEffect(() => {
     invalidate();
@@ -557,14 +558,19 @@ function CameraRig({ selected, still }: { selected: number | null; still: boolea
 
   useFrame((_, dt) => {
     if (selected === null) {
-      const far = portrait ? 1.75 : size.width < 1024 ? 1.3 : 1.1;
-      goalPos.set(0, 13.5 * far, 22 * far - 2.7);
+      if (side) {
+        // Side-on: 2018 at the left, the flag at the right.
+        const far = Math.max(1, 1.55 / (size.width / size.height));
+        goalPos.set(20.5 * far, 11.5 * far, OVERVIEW_TARGET.z);
+      } else {
+        goalPos.set(0, 13.5 * 1.75, 22 * 1.75 - 2.7);
+      }
       goalLook.copy(OVERVIEW_TARGET);
     } else {
       const p = ISLANDS[selected];
-      const near = portrait ? 1.55 : 1;
       goalLook.set(p[0], p[1] + 0.7, p[2]);
-      goalPos.set(p[0] + 1.2 * near, p[1] + 10.5 * near, p[2] + 6.2 * near);
+      if (side) goalPos.set(p[0] + 11, p[1] + 8.5, p[2] + 1.6);
+      else goalPos.set(p[0] + 1.9, p[1] + 16.3, p[2] + 9.6);
     }
     if (still) {
       pos.current.copy(goalPos);
@@ -584,6 +590,8 @@ function CameraRig({ selected, still }: { selected: number | null; still: boolea
 
 function World({ landmarks, selected, hovered, still, onSelect, onHover, onReady }: SceneProps) {
   const m = useMaterials();
+  const { size } = useThree();
+  const side = size.width > size.height * 1.1;
   const ready = useRef(false);
   useFrame(() => {
     if (!ready.current) {
@@ -595,11 +603,13 @@ function World({ landmarks, selected, hovered, still, onSelect, onHover, onReady
     <>
       <fog attach="fog" args={[INK.sky, 26, 58]} />
       <hemisphereLight args={['#8FA6C8', '#141C2B', 1.1]} />
-      <directionalLight position={[-8, 10, 7]} intensity={2.6} color="#FFD7A1" />
-      <directionalLight position={[9, 4, -6]} intensity={0.6} color="#6E86B5" />
-      <CameraRig selected={selected} still={still} />
-      <Stars />
-      <Path still={still} />
+      <directionalLight position={side ? [9, 11, 8] : [-8, 10, 7]} intensity={2.6} color="#FFD7A1" />
+      <directionalLight position={side ? [-6, 4, -9] : [9, 4, -6]} intensity={0.6} color="#6E86B5" />
+      <CameraRig selected={selected} still={still} side={side} />
+      <group rotation={[0, side ? Math.PI / 2 : 0, 0]}>
+        <Stars />
+      </group>
+      <Path still={still} side={side} />
       {landmarks.map((kind, i) => (
         <Island
           key={i}
@@ -611,6 +621,7 @@ function World({ landmarks, selected, hovered, still, onSelect, onHover, onReady
           hovered={hovered === i && selected !== i}
           onSelect={onSelect}
           onHover={onHover}
+          side={side}
         />
       ))}
     </>

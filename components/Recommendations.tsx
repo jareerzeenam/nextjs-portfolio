@@ -27,9 +27,11 @@ export default function Recommendations() {
 
         <figure className="mt-14 max-w-[58rem]">
           <blockquote className="display text-[1.75rem] !font-bold !leading-[1.15] sm:text-[2.4rem]">
-            <span aria-hidden className="text-ochre">“</span>
-            <ScrubWords text={lead.excerpt} />
-            <span aria-hidden className="text-ochre">”</span>
+            <ScrubWords
+              text={lead.excerpt}
+              prefix={<span aria-hidden className="text-ochre">“</span>}
+              suffix={<span aria-hidden className="text-ochre">”</span>}
+            />
           </blockquote>
           <Person t={lead} />
           <FullText t={lead} />
