@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T00:00:00Z",
+  "title": "Design System: Jareer Zeenam",
+  "extensions": {
+    "colorMeta": {
+      "sky": { "role": "neutral", "displayName": "Dusk Sky", "canonical": "#141C2B", "tonalRamp": ["#05080d", "#0f1522", "#141c2b", "#1b2537", "#2c3850", "#3d4964", "#6a7590", "#b5bccb"] },
+      "sky-deep": { "role": "neutral", "displayName": "Deep Sky", "canonical": "#0F1522", "tonalRamp": ["#04060b", "#0a0f19", "#0f1522", "#18202f", "#283245", "#3c475e", "#68728a", "#b3b9c6"] },
+      "sky-raised": { "role": "neutral", "displayName": "Raised Sky", "canonical": "#1B2537", "tonalRamp": ["#070a11", "#111827", "#1b2537", "#263248", "#36435c", "#4c5a75", "#7c879f", "#c2c8d4"] },
+      "sky-line": { "role": "neutral", "displayName": "Sky Line", "canonical": "#2C3850", "tonalRamp": ["#0b0f17", "#18202f", "#2c3850", "#3a4763", "#4c5a78", "#66748f", "#949db3", "#d0d4de"] },
+      "bone": { "role": "neutral", "displayName": "Bone", "canonical": "#ECE3CF", "tonalRamp": ["#2b2822", "#4f4a3f", "#787163", "#a39b89", "#c9c0ad", "#ece3cf", "#f4eee2", "#faf8f2"] },
+      "bone-dim": { "role": "neutral", "displayName": "Dim Bone", "canonical": "#B9B2A2", "tonalRamp": ["#24221e", "#3f3c35", "#5f5a50", "#837d70", "#a09989", "#b9b2a2", "#d6d1c6", "#f0eee9"] },
+      "bone-mute": { "role": "neutral", "displayName": "Mute Bone", "canonical": "#8F8A7E", "tonalRamp": ["#1c1b18", "#33312c", "#4f4b44", "#6e6a60", "#8f8a7e", "#aca89e", "#cbc8c1", "#ebe9e5"] },
+      "ochre": { "role": "primary", "displayName": "Path Ochre", "canonical": "#E3A93B", "tonalRamp": ["#2e1f05", "#56390a", "#7f5510", "#a87217", "#c98e22", "#e3a93b", "#edc579", "#f8e7c4"] },
+      "ochre-hover": { "role": "primary", "displayName": "Lit Ochre", "canonical": "#EDB952", "tonalRamp": ["#30230a", "#5a4112", "#86611b", "#b08226", "#d39f39", "#edb952", "#f3cf88", "#fae9c9"] },
+      "moss": { "role": "secondary", "displayName": "Moss", "canonical": "#6E9A73", "tonalRamp": ["#141e15", "#273a29", "#3a573e", "#4c7353", "#6e9a73", "#8fb393", "#b6ceb8", "#e0ebe1"] },
+      "clay": { "role": "tertiary", "displayName": "Clay", "canonical": "#C8553D", "tonalRamp": ["#2a0f09", "#4f1d12", "#76291b", "#9e3826", "#c8553d", "#d97d69", "#e8ab9e", "#f6dbd5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (stretched)", "purpose": "Hero name and the closing headline. Archivo 800 at wdth 118; 3.1rem phone, 5.2rem small, 3.6/4.75rem in the hero plate, up to 6rem at the close." },
+      "headline": { "displayName": "Headline (stretched)", "purpose": "Section h2s: 2.5rem / 3.75rem / 4.5rem by breakpoint, about 14ch wide." },
+      "title": { "displayName": "Title (stretched)", "purpose": "Company, project and stage names: 1.9rem to 2.4rem; 1.7rem in the stage card." },
+      "body": { "displayName": "Body", "purpose": "Reading copy in bone-dim at 1rem to 1.125rem, line-height 1.625, capped near 38rem or 65ch." },
+      "label": { "displayName": "HUD (condensed)", "purpose": "Dates, level numbers, status, tool tags, skill group names. Uppercase, 0.08em tracking, tabular figures." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for hover, link underline, entrances and stage swaps." },
+      { "name": "hover-lift", "value": "translateY(-2px) over 200ms", "purpose": "Buttons and level keys lift on hover." },
+      { "name": "press", "value": "scale(0.97) over 80ms", "purpose": "Button press feedback." },
+      { "name": "hero-rise", "value": "opacity 0 + translateY(14px) to rest, 700ms, 70ms stagger", "purpose": "Hero copy entrance, once on load; the stage column follows from 380ms." },
+      { "name": "stage-swap", "value": "opacity 0 + translateX(10px) + blur(3px) to rest, 320ms", "purpose": "Stage card content changes, arriving from the path direction." },
+      { "name": "scroll-spring", "value": "spring stiffness 170, damping 32, mass 0.5 on scroll progress", "purpose": "Light inertia on every scroll-scrubbed value." },
+      { "name": "scroll-arrive", "value": "perspective(1200px) translate3d(slide, rise 48px, -depth 160px) rotateX(tilt) rotateY(swing) to rest; opacity 0.12 to 1", "purpose": "Section content arriving from depth between 'start 100%' and 'start 58%'. Reversible; at rest before mount and under reduced motion." },
+      { "name": "scroll-words", "value": "per-word opacity 0.2 to 1 across 'start 88%' to 'end 52%'", "purpose": "The lead recommendation lights up as it is read." },
+      { "name": "camera-spring", "value": "spring k 26, c 9 with slight overshoot", "purpose": "3D camera flying to the selected island." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "camera-side-on", "value": "viewport width > 1.1 x height" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one solid ochre action in view: Email me, Download the PDF.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Email me</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; background: #E3A93B; color: #141C2B; font-family: Archivo, system-ui, sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; border-radius: 0; transition: transform 200ms cubic-bezier(0.22,1,0.36,1), background-color 200ms cubic-bezier(0.22,1,0.36,1); } .ds-btn-primary:hover { background: #EDB952; transform: translateY(-2px); } .ds-btn-primary:active { transform: scale(0.97); transition-duration: 80ms; } .ds-btn-primary:focus-visible { outline: 2px solid #E3A93B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hairline alternative beside the primary: Read my resume, Resume.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Read my resume</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; background: transparent; color: #ECE3CF; border: 1px solid rgba(236,227,207,0.4); font-family: Archivo, system-ui, sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; border-radius: 0; transition: transform 200ms cubic-bezier(0.22,1,0.36,1), background-color 200ms, border-color 200ms; } .ds-btn-secondary:hover { border-color: #ECE3CF; background: rgba(236,227,207,0.05); transform: translateY(-2px); } .ds-btn-secondary:active { transform: scale(0.97); transition-duration: 80ms; } .ds-btn-secondary:focus-visible { outline: 2px solid #E3A93B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Stage Plate",
+      "kind": "card",
+      "refersTo": "stage-plate",
+      "description": "Signature square panel with a bone hairline and an ochre corner notch; holds the hero copy and the stage card.",
+      "html": "<div class=\"ds-plate\"><div class=\"ds-plate-head\"><p class=\"ds-plate-title\">Adventus Education</p><p class=\"ds-plate-hud\">L4 / 2021-23</p></div><p class=\"ds-plate-role\">Software Engineer</p><p class=\"ds-plate-body\">Moved a monolith to microservices serving tens of thousands of concurrent users.</p></div>",
+      "css": ".ds-plate { position: relative; max-width: 23rem; padding: 20px; background: rgba(15,21,34,0.9); border: 1px solid rgba(236,227,207,0.15); color: #ECE3CF; font-family: Archivo, system-ui, sans-serif; } .ds-plate::before { content: ''; position: absolute; left: -1px; top: -1px; width: 12px; height: 12px; background: linear-gradient(#E3A93B,#E3A93B) 0 0 / 12px 3px no-repeat, linear-gradient(#E3A93B,#E3A93B) 0 0 / 3px 12px no-repeat; } .ds-plate-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; } .ds-plate-title { margin: 0; font-size: 1.7rem; font-weight: 800; font-stretch: 118%; letter-spacing: -0.025em; line-height: 0.95; } .ds-plate-hud { margin: 0; font-size: 0.78rem; font-weight: 600; font-stretch: 72%; letter-spacing: 0.08em; text-transform: uppercase; color: #E3A93B; } .ds-plate-role { margin: 4px 0 0; font-size: 0.875rem; color: #B9B2A2; } .ds-plate-body { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.625; }"
+    },
+    {
+      "name": "Level Selector",
+      "kind": "nav",
+      "refersTo": "level-key",
+      "description": "Square HUD keys on a dotted ochre rule; selected key fills ochre.",
+      "html": "<div class=\"ds-levels\" role=\"group\" aria-label=\"Career levels\"><span class=\"ds-levels-rule\"></span><button class=\"ds-key\">1</button><button class=\"ds-key\">2</button><button class=\"ds-key\" aria-pressed=\"true\">3</button><button class=\"ds-key\">4</button></div>",
+      "css": ".ds-levels { position: relative; display: flex; justify-content: space-between; align-items: center; max-width: 23rem; } .ds-levels-rule { position: absolute; left: 12px; right: 12px; top: 50%; height: 1px; background: linear-gradient(90deg,#E3A93B 0 3px,transparent 3px 8px); background-size: 8px 1px; opacity: 0.7; } .ds-key { position: relative; display: grid; place-items: center; width: 44px; height: 44px; background: #0F1522; color: #ECE3CF; border: 1px solid rgba(236,227,207,0.3); border-radius: 0; font-family: Archivo, system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; font-stretch: 72%; letter-spacing: 0.08em; cursor: pointer; transition: transform 200ms cubic-bezier(0.22,1,0.36,1), border-color 200ms, color 200ms, background-color 200ms; } .ds-key:hover, .ds-key:focus-visible { border-color: #E3A93B; color: #E3A93B; transform: translateY(-2px); } .ds-key:focus-visible { outline: 2px solid #E3A93B; outline-offset: 3px; } .ds-key[aria-pressed=\"true\"] { background: #E3A93B; border-color: #E3A93B; color: #141C2B; }"
+    },
+    {
+      "name": "Tool Tag",
+      "kind": "chip",
+      "refersTo": "tool-tag",
+      "description": "Condensed HUD caps in a square hairline; lists a level's stack.",
+      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag\">Laravel</li><li class=\"ds-tag\">GraphQL</li><li class=\"ds-tag\">Node.js</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; } .ds-tag { padding: 4px 10px; border: 1px solid rgba(236,227,207,0.15); color: #B9B2A2; font-family: Archivo, system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; font-stretch: 72%; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Drawn Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Bone text link whose underline draws in from the left and turns ochre on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read this level <svg viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M3 8h10M9 4l4 4-4 4\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 6px; color: #ECE3CF; font-family: Archivo, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 300ms cubic-bezier(0.22,1,0.36,1), color 200ms; } .ds-link:hover { background-size: 100% 1px; color: #E3A93B; } .ds-link:focus-visible { outline: 2px solid #E3A93B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Fixed 64px header: square avatar, bone-dim links, compact secondary Resume button; turns sky with a hairline once scrolled.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-header-id\" href=\"#\"><span class=\"ds-avatar\"></span>Jareer Zeenam</a><nav><a class=\"ds-nav-link\" href=\"#\">Levels</a><a class=\"ds-nav-link\" href=\"#\">Projects</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav><a class=\"ds-header-btn\" href=\"#\">Resume</a></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; padding: 0 24px; background: rgba(20,28,43,0.95); border-bottom: 1px solid rgba(236,227,207,0.1); font-family: Archivo, system-ui, sans-serif; color: #ECE3CF; } .ds-header-id { display: flex; align-items: center; gap: 12px; color: #ECE3CF; text-decoration: none; font-size: 0.875rem; font-weight: 600; } .ds-avatar { width: 36px; height: 36px; background: #1B2537; border: 1px solid rgba(236,227,207,0.25); } .ds-header nav { display: flex; gap: 28px; } .ds-nav-link { color: #B9B2A2; font-size: 0.875rem; text-decoration: none; transition: color 200ms; } .ds-nav-link:hover { color: #ECE3CF; } .ds-nav-link:focus-visible, .ds-header-btn:focus-visible { outline: 2px solid #E3A93B; outline-offset: 3px; } .ds-header-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1px solid rgba(236,227,207,0.4); color: #ECE3CF; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: border-color 200ms, background-color 200ms; } .ds-header-btn:hover { border-color: #ECE3CF; background: rgba(236,227,207,0.05); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Level-Select Overworld",
+    "overview": "The career is a console world map at dusk. Every role is a floating, toon-shaded diorama island on one dotted ochre path from 2018 to now, and choosing a level springs the camera to that island. The rest of the page reads like the pause menu of that game: square plates, condensed HUD labels, stretched stage titles, and four flat inks on a dark sky. Nothing is glossy; depth comes from the 3D world and from scroll-linked perspective, never from shadows or blur haze.\n\nDensity is low and editorial: one idea per section, one content edge, long dark fields between sections. The world is the only place colour gets loud; HTML surfaces stay bone on sky with ochre reserved for the path, selection and the single primary action.\n\nMotion belongs to the camera. As you scroll, content arrives from depth along a perspective, scrubbed to scroll position and reversible, as if the camera were travelling over the map. Everything renders at rest before mount and under reduced motion.",
+    "keyCharacteristics": [
+      "Dusk sky ground with four flat inks (bone, moss, ochre, clay).",
+      "One family, Archivo, used across its width axis: stretched for titles, normal for reading, condensed for HUD.",
+      "Square corners everywhere; 1px bone hairlines; an ochre corner notch marks a stage plate.",
+      "Toon-shaded low-poly 3D: a signature overworld hero and one smaller flag island at the close.",
+      "Scroll-scrubbed perspective motion on every section, transform and opacity only."
+    ],
+    "rules": [
+      { "name": "The Four Inks Rule", "body": "Every surface, HTML or 3D, is drawn in sky plus bone, moss, ochre and clay. A new hue needs a world reason, not a section reason.", "section": "colors" },
+      { "name": "The Ochre Means Here Rule", "body": "Ochre marks position, selection or the one primary action in view. Never use it for decoration or for a second competing button.", "section": "colors" },
+      { "name": "The Clay Stays In The World Rule", "body": "Clay lives on the islands. HTML text and controls do not use it.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Archivo is the only face. Contrast comes from the width axis and weight, never from a second family.", "section": "typography" },
+      { "name": "The Width Means Role Rule", "body": "Stretched is a name (a stage, a section, a company). Condensed is data (a date, a number, a status). Normal width is for reading.", "section": "typography" },
+      { "name": "The No Shadow Rule", "body": "Separation is a hairline or a tonal step, never a drop shadow. Plates float because the world behind them moves, not because they cast anything.", "section": "elevation" },
+      { "name": "The Toon Not Gloss Rule", "body": "3D materials are toon-shaded with a three-step ramp or flat unlit ochre. No PBR gloss, no bloom, no glow haze.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every surface in sky plus the four inks; check new text against the 4.5:1 floor (bone-mute is the dimmest text colour allowed).",
+      "Do use the width axis for role: stretched 800 for names and headings, condensed 600 uppercase tracked for dates, numbers and status.",
+      "Do keep corners square and frames to 1px bone hairlines; mark a featured panel with the ochre corner notch.",
+      "Do scrub scroll motion to position with transform and opacity, let it reverse on scroll-up, and render at rest before mount and under reduced motion.",
+      "Do give 3D a still fallback (reduced motion, low memory) and an HTML-only fallback (no WebGL, save-data), and pause rendering when it is off screen.",
+      "Do keep every fact that appears in 3D also present in HTML."
+    ],
+    "donts": [
+      "Don't add box shadows, glows, glassmorphism or backdrop blur to HTML surfaces.",
+      "Don't round corners on buttons, plates, images or tags.",
+      "Don't introduce a second typeface or a new accent hue.",
+      "Don't use clay for text or controls, or ochre for decoration.",
+      "Don't add gloss, bloom or PBR materials to the world; keep the three-step toon ramp.",
+      "Don't add a third real-time 3D scene; the overworld and the flag island are the budget."
+    ]
+  }
+}
